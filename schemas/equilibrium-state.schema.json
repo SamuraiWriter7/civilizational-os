@@ -74,6 +74,7 @@
           "trace_missing",
           "attribution_unclear",
           "ai_to_ai_recursion",
+          "automation_without_review",  
           "governance_boundary_risk",
           "emotional_overheating",
           "review_overload",
@@ -82,7 +83,8 @@
           "rigid_governance",
           "unstable_ideation",
           "value_extraction_risk"
-        ]
+       ]
+
       },
       "uniqueItems": true
     },
