@@ -136,5 +136,34 @@
 "description": "Optional human-readable notes about the equilibrium state."
 }
 },
+"workflow_id": {
+  "type": "string",
+  "description": "ID of the workflow being assessed"
+},
+
+"assessed_at": {
+  "type": "string",
+  "format": "date-time",
+  "description": "Timestamp of assessment"
+},
+
+"assessed_by": {
+  "type": "string",
+  "description": "Which subsystem performed the assessment"
+},
+
+"transition_target": {
+  "type": "string",
+  "description": "Next phase or target state"
+},
+
+"related_records": {
+  "type": "array",
+  "items": {
+    "type": "string"
+  },
+  "description": "List of related record IDs"
+}
+  
 "additionalProperties": false
 }
