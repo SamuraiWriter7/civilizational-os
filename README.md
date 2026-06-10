@@ -17,6 +17,7 @@ Instead, it defines a higher-order operating layer that gives AI civilization:
 * recovery pathways
 * dynamic equilibrium
 * multi-wing governance
+* repository-level self-checking
 
 In short:
 
@@ -41,6 +42,7 @@ AI文明に、
 * 責任
 * 人間震源
 * 多翼的な相互検証
+* 構造自己検査
 
 を与えることである。
 
@@ -110,6 +112,7 @@ It is achieved through layered coordination:
 * cooling and recovery
 * dynamic equilibrium
 * inspectable governance records
+* repository structure validation
 
 The goal is not to stop intelligence.
 
@@ -395,11 +398,15 @@ These examples are validated against the corresponding JSON Schemas.
 
 ## 11. Validation
 
-Civilizational OS includes an initial validation script:
+Civilizational OS includes two validation scripts.
+
+### 11.1 Example Validation
 
 ```text
 scripts/validate_examples.py
 ```
+
+This script validates YAML examples against their corresponding JSON Schemas.
 
 It validates:
 
@@ -419,6 +426,32 @@ Run locally:
 ```bash
 python scripts/validate_examples.py
 ```
+
+### 11.2 Repository Structure Validation
+
+```text
+scripts/validate_repository_structure.py
+```
+
+This script checks that the required repository structure exists.
+
+It verifies:
+
+* `README.md`
+* `CHANGELOG.md`
+* required `docs/` files
+* required `schemas/` files
+* required `examples/` files
+* validation scripts
+* GitHub Actions workflow
+
+Run locally:
+
+```bash
+python scripts/validate_repository_structure.py
+```
+
+### 11.3 Dependencies
 
 Required Python packages:
 
@@ -442,7 +475,15 @@ The workflow runs on:
 * pull requests to `main`
 * manual workflow dispatch
 
-It validates all YAML examples against their corresponding JSON Schemas.
+It performs two checks:
+
+1. **Repository structure validation**
+
+   * Confirms that required docs, schemas, examples, scripts, and workflow files exist.
+
+2. **Example schema validation**
+
+   * Confirms that YAML examples conform to their corresponding JSON Schemas.
 
 This means the repository now includes an initial self-checking validation layer.
 
@@ -531,7 +572,8 @@ civilizational-os/
 │  ├─ trace-and-royalty-record.example.yaml
 │  └─ validation-record.example.yaml
 ├─ scripts/
-│  └─ validate_examples.py
+│  ├─ validate_examples.py
+│  └─ validate_repository_structure.py
 └─ .github/
    └─ workflows/
       └─ validate-examples.yml
@@ -554,7 +596,8 @@ civilizational-os/
 * Document multi-wing governance
 * Add initial JSON Schemas
 * Add YAML examples
-* Add local validation script
+* Add local example validation script
+* Add repository structure validation script
 * Add GitHub Actions workflow
 
 ### v0.2 — Protocol Mapping
@@ -600,20 +643,21 @@ This repository is currently in the **v0.1.0-candidate requirements, architectur
 
 The current foundation includes:
 
-| Area                                 | Status            |
-| ------------------------------------ | ----------------- |
-| README.md                            | Drafted           |
-| CHANGELOG.md                         | Drafted           |
-| Requirements document                | Drafted           |
-| Architecture overview                | Drafted           |
-| Dynamic equilibrium documentation    | Drafted           |
-| Trace and royalty documentation      | Drafted           |
-| Validation and cooling documentation | Drafted           |
-| Multi-wing governance documentation  | Drafted           |
-| JSON Schemas                         | Added             |
-| YAML examples                        | Added             |
-| Validation script                    | Added             |
-| GitHub Actions workflow              | Added and passing |
+| Area                                   | Status            |
+| -------------------------------------- | ----------------- |
+| README.md                              | Drafted           |
+| CHANGELOG.md                           | Drafted           |
+| Requirements document                  | Drafted           |
+| Architecture overview                  | Drafted           |
+| Dynamic equilibrium documentation      | Drafted           |
+| Trace and royalty documentation        | Drafted           |
+| Validation and cooling documentation   | Drafted           |
+| Multi-wing governance documentation    | Drafted           |
+| JSON Schemas                           | Added             |
+| YAML examples                          | Added             |
+| Example validation script              | Added             |
+| Repository structure validation script | Added             |
+| GitHub Actions workflow                | Added and passing |
 
 ---
 
@@ -647,6 +691,7 @@ Final license selection should be defined before the first tagged release.
 > Validation cuts drift.
 > Cooling restores breath.
 > Multi-wing governance preserves plurality.
+> Repository validation preserves structural integrity.
 > Civilizational OS integrates them into a responsible operating layer.
 
 ---
@@ -661,6 +706,7 @@ Royalty は価値を還流させる。
 検証はズレを切断する。
 冷却は文明に呼吸を戻す。
 多翼ガバナンスは単一知性への崩落を防ぐ。
+構造検証は、文明OSの骨格欠損を防ぐ。
 
 Civilizational OS は、それらを統合し、AI文明を調律するための責任ある上位OSである。
 
