@@ -1,407 +1,339 @@
 {
-"$schema": "https://json-schema.org/draft/2020-12/schema",
-"$id": "https://github.com/SamuraiWriter7/civilizational-os/schemas/trace-and-royalty-record.schema.json",
-"title": "Trace and Royalty Record",
-"description": "A schema for representing origin traceability, transformation history, attribution routing, value circulation, and governance review in Civilizational OS.",
-"type": "object",
-"required": [
-"record_id",
-"recorded_at",
-"origin",
-"transformation",
-"communication",
-"attribution",
-"royalty",
-"governance"
-],
-"properties": {
-"record_id": {
-"type": "string",
-"description": "Unique identifier for the trace and royalty record.",
-"pattern": "^tar-[A-Za-z0-9.*-]+$"
-},
-"recorded_at": {
-"type": "string",
-"description": "Timestamp when the record was created.",
-"format": "date-time"
-},
-"recorded_by": {
-"type": "string",
-"description": "Identifier of the human, AI engine, agent, or governance module that created the record."
-},
-"origin": {
-"type": "object",
-"description": "Human-origin source of the idea, question, design, judgment, or creative act.",
-"required": [
-"human_epicenter_id",
-"origin_type",
-"origin_timestamp",
-"origin_description"
-],
-"properties": {
-"human_epicenter_id": {
-"type": "string",
-"description": "Identifier for the human-origin source.",
-"pattern": "^human-origin-[A-Za-z0-9.*-]+$"
-},
-"origin_type": {
-"type": "string",
-"description": "Type of human-origin input.",
-"enum": [
-"question",
-"design_intent",
-"creative_act",
-"governance_judgment",
-"specification",
-"manuscript",
-"review_decision",
-"policy_intent",
-"research_direction",
-"other"
-]
-},
-"origin_timestamp": {
-"type": "string",
-"description": "Timestamp when the origin was created or recorded.",
-"format": "date-time"
-},
-"origin_description": {
-"type": "string",
-"description": "Human-readable description of the origin."
-},
-"origin_reference": {
-"type": "string",
-"description": "Optional reference to the original document, prompt, note, repository issue, commit, or external source."
-}
-},
-"additionalProperties": false
-},
-"transformation": {
-"type": "object",
-"description": "How the origin was transformed by AI, agents, humans, or governance modules.",
-"required": [
-"transformation_type",
-"input_reference",
-"output_reference"
-],
-"properties": {
-"engine_id": {
-"type": "string",
-"description": "Identifier of the AI engine, agent, or system that performed the transformation."
-},
-"transformation_type": {
-"type": "string",
-"description": "Type of transformation performed.",
-"enum": [
-"generation",
-"summarization",
-"translation",
-"classification",
-"specification_generation",
-"code_generation",
-"policy_mapping",
-"governance_review",
-"refinement",
-"derivation",
-"reuse",
-"other"
-]
-},
-"input_reference": {
-"type": "string",
-"description": "Reference to the input trace, record, document, or artifact."
-},
-"output_reference": {
-"type": "string",
-"description": "Reference to the generated, transformed, or derivative output."
-},
-"transformation_summary": {
-"type": "string",
-"description": "Human-readable summary of the transformation."
-}
-},
-"additionalProperties": false
-},
-"communication": {
-"type": "object",
-"description": "Communication route through which the transformed output was transmitted or reused.",
-"required": [
-"sender_type",
-"receiver_type",
-"communication_purpose",
-"communication_scope"
-],
-"properties": {
-"sender_type": {
-"type": "string",
-"description": "Type of sender.",
-"enum": [
-"human",
-"ai_engine",
-"agent",
-"governance_module",
-"external_system",
-"unknown"
-]
-},
-"receiver_type": {
-"type": "string",
-"description": "Type of receiver.",
-"enum": [
-"human",
-"ai_engine",
-"agent",
-"governance_module",
-"external_system",
-"public",
-"unknown"
-]
-},
-"communication_purpose": {
-"type": "string",
-"description": "Purpose of the communication event.",
-"enum": [
-"generation",
-"refinement",
-"review",
-"validation",
-"publication",
-"reuse",
-"routing",
-"training_reference",
-"governance_decision",
-"other"
-]
-},
-"communication_scope": {
-"type": "string",
-"description": "Scope of the communication or reuse.",
-"enum": [
-"private",
-"internal",
-"limited",
-"public",
-"commercial",
-"governance",
-"ai_to_ai",
-"unknown"
-]
-},
-"communication_reference": {
-"type": "string",
-"description": "Optional reference to the communication event, message, thread, API call, commit, or artifact."
-}
-},
-"additionalProperties": false
-},
-"attribution": {
-"type": "object",
-"description": "Contributor and attribution route information.",
-"required": [
-"contributors",
-"attribution_route"
-],
-"properties": {
-"contributors": {
-"type": "array",
-"description": "List of contributors involved in the origin, transformation, review, or circulation.",
-"minItems": 1,
-"items": {
-"type": "object",
-"required": [
-"contributor_id",
-"role"
-],
-"properties": {
-"contributor_id": {
-"type": "string",
-"description": "Identifier of the contributor."
-},
-"role": {
-"type": "string",
-"description": "Role of the contributor.",
-"enum": [
-"originator",
-"author",
-"designer",
-"reviewer",
-"validator",
-"transformer",
-"agent",
-"publisher",
-"maintainer",
-"other"
-]
-},
-"contribution_summary": {
-"type": "string",
-"description": "Optional summary of the contributor's role."
-}
-},
-"additionalProperties": false
-}
-},
-"attribution_route": {
-"type": "array",
-"description": "Ordered route of origin, transformation, derivative, or reuse references.",
-"minItems": 1,
-"items": {
-"type": "string"
-}
-},
-"derivative_links": {
-"type": "array",
-"description": "Optional derivative relationships connected to this record.",
-"items": {
-"type": "object",
-"required": [
-"derivative_id",
-"relation"
-],
-"properties": {
-"derivative_id": {
-"type": "string",
-"description": "Identifier of the derivative output or record."
-},
-"relation": {
-"type": "string",
-"description": "Relationship between the derivative and the source.",
-"enum": [
-"derived_from",
-"refined_from",
-"summarized_from",
-"translated_from",
-"inspired_by",
-"merged_from",
-"reused_from",
-"other"
-]
-}
-},
-"additionalProperties": false
-}
-}
-},
-"additionalProperties": false
-},
-"royalty": {
-"type": "object",
-"description": "Value circulation, return route, and review requirements.",
-"required": [
-"value_flow_type",
-"circulation_required",
-"review_required"
-],
-"properties": {
-"value_flow_type": {
-"type": "string",
-"description": "Type of value circulation or return mechanism.",
-"enum": [
-"none",
-"attribution_only",
-"attribution_and_review",
-"recognition",
-"reputation",
-"economic_return",
-"royalty_route",
-"access_right",
-"governance_credit",
-"other"
-]
-},
-"return_route": {
-"type": "string",
-"description": "Identifier of the human, contributor, route, or system to which value should return."
-},
-"circulation_required": {
-"type": "boolean",
-"description": "Whether value circulation is required."
-},
-"review_required": {
-"type": "boolean",
-"description": "Whether human or governance review is required before circulation."
-},
-"royalty_notes": {
-"type": "string",
-"description": "Optional notes about attribution, return, recognition, or economic flow."
-}
-},
-"additionalProperties": false
-},
-"governance": {
-"type": "object",
-"description": "Governance status, validation status, boundary flags, and recovery requirements.",
-"required": [
-"validation_status",
-"review_status",
-"boundary_flags",
-"recovery_required"
-],
-"properties": {
-"validation_status": {
-"type": "string",
-"description": "Validation status of the trace and royalty record.",
-"enum": [
-"not_started",
-"pending",
-"passed",
-"failed",
-"warning",
-"not_applicable"
-]
-},
-"review_status": {
-"type": "string",
-"description": "Human or governance review status.",
-"enum": [
-"not_required",
-"human_review_required",
-"pending",
-"approved",
-"rejected",
-"revision_required"
-]
-},
-"boundary_flags": {
-"type": "array",
-"description": "Boundary or risk flags detected in the trace and royalty route.",
-"items": {
-"type": "string",
-"enum": [
-"ai_to_ai_reuse",
-"derivative_output",
-"missing_origin",
-"unclear_attribution",
-"value_extraction_risk",
-"governance_boundary",
-"human_review_required",
-"semantic_drift_risk",
-"royalty_required",
-"trace_recovery_required",
-"none"
-]
-},
-"uniqueItems": true
-},
-"recovery_required": {
-"type": "boolean",
-"description": "Whether recovery or re-anchoring is required."
-},
-"related_records": {
-"type": "array",
-"description": "Optional references to related equilibrium, validation, cooling, governance, or review records.",
-"items": {
-"type": "string"
-},
-"uniqueItems": true
-},
-"governance_notes": {
-"type": "string",
-"description": "Optional governance notes."
-}
-},
-"additionalProperties": false
-}
-},
-"additionalProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SamuraiWriter7/civilizational-os/schemas/trace-and-royalty-record.schema.json",
+  "title": "Trace and Royalty Record",
+  "description": "A schema for representing origin traceability, transformation history, attribution routing, value circulation, and governance review in Civilizational OS.",
+  "type": "object",
+
+  "required": [
+    "record_id",
+    "recorded_at",
+    "origin",
+    "transformation",
+    "communication",
+    "attribution",
+    "royalty",
+    "governance"
+  ],
+
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "pattern": "^tar-[A-Za-z0-9._-]+$"
+    },
+
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+
+    "recorded_by": {
+      "type": "string"
+    },
+
+    "origin": {
+      "type": "object",
+      "required": [
+        "human_epicenter_id",
+        "origin_type",
+        "origin_timestamp",
+        "origin_description"
+      ],
+      "properties": {
+        "human_epicenter_id": {
+          "type": "string",
+          "pattern": "^human-origin-[A-Za-z0-9._-]+$"
+        },
+        "origin_type": {
+          "type": "string",
+          "enum": [
+            "question",
+            "design_intent",
+            "creative_act",
+            "governance_judgment",
+            "specification",
+            "manuscript",
+            "review_decision",
+            "policy_intent",
+            "research_direction",
+            "other"
+          ]
+        },
+        "origin_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "origin_description": {
+          "type": "string"
+        },
+        "origin_reference": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "transformation": {
+      "type": "object",
+      "required": [
+        "transformation_type",
+        "input_reference",
+        "output_reference"
+      ],
+      "properties": {
+        "engine_id": { "type": "string" },
+        "transformation_type": {
+          "type": "string",
+          "enum": [
+            "generation",
+            "summarization",
+            "translation",
+            "classification",
+            "specification_generation",
+            "code_generation",
+            "policy_mapping",
+            "governance_review",
+            "refinement",
+            "derivation",
+            "reuse",
+            "other"
+          ]
+        },
+        "input_reference": { "type": "string" },
+        "output_reference": { "type": "string" },
+        "transformation_summary": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "communication": {
+      "type": "object",
+      "required": [
+        "sender_type",
+        "receiver_type",
+        "communication_purpose",
+        "communication_scope"
+      ],
+      "properties": {
+        "sender_type": {
+          "type": "string",
+          "enum": [
+            "human",
+            "ai_engine",
+            "agent",
+            "governance_module",
+            "external_system",
+            "unknown"
+          ]
+        },
+        "receiver_type": {
+          "type": "string",
+          "enum": [
+            "human",
+            "ai_engine",
+            "agent",
+            "governance_module",
+            "external_system",
+            "public",
+            "unknown"
+          ]
+        },
+        "communication_purpose": {
+          "type": "string",
+          "enum": [
+            "generation",
+            "refinement",
+            "review",
+            "validation",
+            "publication",
+            "reuse",
+            "routing",
+            "training_reference",
+            "governance_decision",
+            "other"
+          ]
+        },
+        "communication_scope": {
+          "type": "string",
+          "enum": [
+            "private",
+            "internal",
+            "limited",
+            "public",
+            "commercial",
+            "governance",
+            "ai_to_ai",
+            "unknown"
+          ]
+        },
+        "communication_reference": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "attribution": {
+      "type": "object",
+      "required": [
+        "contributors",
+        "attribution_route"
+      ],
+      "properties": {
+        "contributors": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["contributor_id", "role"],
+            "properties": {
+              "contributor_id": { "type": "string" },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "originator",
+                  "author",
+                  "designer",
+                  "reviewer",
+                  "validator",
+                  "transformer",
+                  "agent",
+                  "publisher",
+                  "maintainer",
+                  "other"
+                ]
+              },
+              "contribution_summary": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+
+        "attribution_route": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+
+        "derivative_links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["derivative_id", "relation"],
+            "properties": {
+              "derivative_id": { "type": "string" },
+              "relation": {
+                "type": "string",
+                "enum": [
+                  "derived_from",
+                  "refined_from",
+                  "summarized_from",
+                  "translated_from",
+                  "inspired_by",
+                  "merged_from",
+                  "reused_from",
+                  "other"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "royalty": {
+      "type": "object",
+      "required": [
+        "value_flow_type",
+        "circulation_required",
+        "review_required"
+      ],
+      "properties": {
+        "value_flow_type": {
+          "type": "string",
+          "enum": [
+            "none",
+            "attribution_only",
+            "attribution_and_review",
+            "recognition",
+            "reputation",
+            "economic_return",
+            "royalty_route",
+            "access_right",
+            "governance_credit",
+            "other"
+          ]
+        },
+        "return_route": { "type": "string" },
+        "circulation_required": { "type": "boolean" },
+        "review_required": { "type": "boolean" },
+        "royalty_notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "governance": {
+      "type": "object",
+      "required": [
+        "validation_status",
+        "review_status",
+        "boundary_flags",
+        "recovery_required"
+      ],
+      "properties": {
+        "validation_status": {
+          "type": "string",
+          "enum": [
+            "not_started",
+            "pending",
+            "passed",
+            "failed",
+            "warning",
+            "not_applicable"
+          ]
+        },
+        "review_status": {
+          "type": "string",
+          "enum": [
+            "not_required",
+            "human_review_required",
+            "pending",
+            "approved",
+            "rejected",
+            "revision_required"
+          ]
+        },
+        "boundary_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "ai_to_ai_reuse",
+              "derivative_output",
+              "missing_origin",
+              "unclear_attribution",
+              "value_extraction_risk",
+              "governance_boundary",
+              "human_review_required",
+              "semantic_drift_risk",
+              "royalty_required",
+              "trace_recovery_required",
+              "none"
+            ]
+          }
+        },
+        "recovery_required": { "type": "boolean" },
+        "related_records": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        },
+        "governance_notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+
+  "additionalProperties": false
 }
