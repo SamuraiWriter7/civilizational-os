@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-This project follows a candidate-based development process during the early architecture phase.
+This project follows a candidate-based development process during the early architecture and schema phase.
 
 ---
 
@@ -10,9 +10,9 @@ This project follows a candidate-based development process during the early arch
 
 ### Added
 
-Initial requirements and architecture definition for **Civilizational OS**.
+Initial requirements, architecture, schema, examples, and validation package for **Civilizational OS**.
 
-This release establishes Civilizational OS as a meta-governance architecture for coordinating AI engines, human-origin traces, value circulation, dynamic equilibrium, validation, cooling, and recovery into a civilization-scale operating layer.
+This release establishes Civilizational OS as a meta-governance architecture for coordinating AI engines, human-origin traces, value circulation, dynamic equilibrium, validation, cooling, recovery, and multi-wing governance into a civilization-scale operating layer.
 
 ---
 
@@ -22,7 +22,7 @@ Added the initial documentation set:
 
 * `README.md`
 
-  * Defines the project purpose, core principles, architecture layers, key documents, repository structure, roadmap, and boundary principles.
+  * Defines the project purpose, core principles, architecture layers, key documents, schema set, examples, validation workflow, repository structure, roadmap, and boundary principles.
   * Positions Civilizational OS as a civilizational tuning layer rather than an AI control system.
   * Introduces the core statement:
 
@@ -33,6 +33,7 @@ Added the initial documentation set:
     * Dynamic equilibrium prevents collapse.
     * Validation cuts drift.
     * Cooling restores breath.
+    * Multi-wing governance preserves plurality.
 
 * `docs/civilizational-os-requirements-v0.1.md`
 
@@ -74,7 +75,7 @@ Added the initial documentation set:
     * Trace preserves origin.
     * Royalty restores circulation.
   * Defines origin preservation, transformation tracking, attribution routing, value circulation, AI-to-AI communication friction, and human epicenter protection.
-  * Provides a conceptual data model and YAML example for future schema design.
+  * Provides a conceptual data model and YAML example direction for future schema design.
 
 * `docs/validation-and-cooling.md`
 
@@ -85,6 +86,13 @@ Added the initial documentation set:
     * Cooling restores breath.
     * Recovery returns the system to human responsibility.
   * Defines semantic drift detection, hallucination filtering, boundary checking, multi-agent cross-verification, human review gates, cooling triggers, recovery gates, incident lifecycle, and human re-anchoring.
+
+* `docs/multi-wing-governance.md`
+
+  * Defines the Multi-Wing Governance model.
+  * Introduces plurality as a structural requirement for civilization-scale AI governance.
+  * Defines wing types including reasoning, validation, trace, royalty, cooling, policy, adversarial, and human review wings.
+  * Defines cross-verification, disagreement preservation, authority boundaries, wing activation rules, failure modes, and future schema direction.
 
 ---
 
@@ -133,6 +141,86 @@ Added initial core requirements:
 
 ---
 
+### Schema Layer
+
+Added initial JSON Schemas:
+
+* `schemas/equilibrium-state.schema.json`
+
+  * Defines records for dynamic equilibrium state, phase dominance, imbalance level, detected signals, counterbalance recommendations, review requirements, cooling requirements, validation requirements, re-anchoring requirements, and transition status.
+
+* `schemas/trace-and-royalty-record.schema.json`
+
+  * Defines records for origin traceability, transformation history, communication route, attribution, value circulation, royalty route, governance review, boundary flags, and recovery requirements.
+
+* `schemas/validation-record.schema.json`
+
+  * Defines records for validation targets, validation types, detected issues, drift level, hallucination risk, boundary flags, trace status, attribution status, validation result, recommended actions, review requirements, cooling requirements, re-anchoring requirements, and final governance status.
+
+---
+
+### Examples
+
+Added initial YAML examples:
+
+* `examples/equilibrium-state.example.yaml`
+
+  * Demonstrates a Fire-dominant imbalance state involving recursive AI generation, reduced human review, semantic drift risk, AI-to-AI recursion, and recommended counterbalances.
+
+* `examples/trace-and-royalty-record.example.yaml`
+
+  * Demonstrates a trace and royalty record connecting human-origin design intent, AI transformation, communication scope, attribution route, royalty review, and governance flags.
+
+* `examples/validation-record.example.yaml`
+
+  * Demonstrates a validation record for an AI-generated governance specification requiring human review, trace recovery, attribution clarification, and re-anchoring.
+
+---
+
+### Validation
+
+Added local validation script:
+
+* `scripts/validate_examples.py`
+
+  * Validates YAML examples against their corresponding JSON Schemas.
+  * Uses `jsonschema` and `pyyaml`.
+  * Validates:
+
+    * `examples/equilibrium-state.example.yaml`
+
+      * against `schemas/equilibrium-state.schema.json`
+    * `examples/trace-and-royalty-record.example.yaml`
+
+      * against `schemas/trace-and-royalty-record.schema.json`
+    * `examples/validation-record.example.yaml`
+
+      * against `schemas/validation-record.schema.json`
+
+Run locally:
+
+```bash
+python scripts/validate_examples.py
+```
+
+---
+
+### GitHub Actions
+
+Added GitHub Actions workflow:
+
+* `.github/workflows/validate-examples.yml`
+
+  * Runs on push to `main`.
+  * Runs on pull requests to `main`.
+  * Supports manual workflow dispatch.
+  * Installs Python dependencies.
+  * Runs `python scripts/validate_examples.py`.
+
+The workflow has passed, confirming that the initial YAML examples conform to their corresponding JSON Schemas.
+
+---
+
 ### Design Principles
 
 Established the following design principles:
@@ -144,6 +232,8 @@ Established the following design principles:
 * Acceleration must be balanced by cooling.
 * Governance must remain reviewable.
 * The system must breathe.
+* Disagreement must remain visible.
+* Validation must not become automated rubber-stamping.
 
 ---
 
@@ -164,35 +254,66 @@ Defined Civilizational OS as a coordination and tuning architecture, not:
 
 ---
 
+### Repository Structure
+
+Current structure:
+
+```text
+civilizational-os/
+├─ README.md
+├─ CHANGELOG.md
+├─ docs/
+│  ├─ civilizational-os-requirements-v0.1.md
+│  ├─ architecture-overview.md
+│  ├─ dynamic-equilibrium.md
+│  ├─ trace-and-royalty-layer.md
+│  ├─ validation-and-cooling.md
+│  └─ multi-wing-governance.md
+├─ schemas/
+│  ├─ equilibrium-state.schema.json
+│  ├─ trace-and-royalty-record.schema.json
+│  └─ validation-record.schema.json
+├─ examples/
+│  ├─ equilibrium-state.example.yaml
+│  ├─ trace-and-royalty-record.example.yaml
+│  └─ validation-record.example.yaml
+├─ scripts/
+│  └─ validate_examples.py
+└─ .github/
+   └─ workflows/
+      └─ validate-examples.yml
+```
+
+---
+
 ### Future Work
 
 Planned future development areas:
 
-* JSON Schemas
-* YAML examples
-* validation scripts
-* CI workflows
+* Additional JSON Schemas
+* Additional YAML examples
+* conformance tests
 * protocol mappings
 * governance records
 * trace event formats
 * royalty event formats
-* equilibrium state records
+* equilibrium state extensions
 * recovery gate schemas
-* conformance tests
+* incident lifecycle schemas
+* multi-wing governance schemas
 * architecture diagrams
 * reference implementations
 
 Recommended next additions:
 
-* `docs/multi-wing-governance.md`
 * `docs/protocol-mapping.md`
 * `docs/conformance-levels.md`
-* `schemas/equilibrium-state.schema.json`
-* `schemas/trace-and-royalty-record.schema.json`
-* `schemas/validation-record.schema.json`
-* `examples/equilibrium-state.example.yaml`
-* `examples/trace-and-royalty-record.example.yaml`
-* `examples/validation-record.example.yaml`
+* `schemas/multi-wing-governance-record.schema.json`
+* `schemas/recovery-gate.schema.json`
+* `schemas/incident-lifecycle.schema.json`
+* `examples/multi-wing-governance-record.example.yaml`
+* `examples/recovery-gate.example.yaml`
+* `examples/incident-lifecycle.example.yaml`
 
 ---
 
@@ -200,13 +321,14 @@ Recommended next additions:
 
 ### Planned
 
-* Add Multi-Wing Governance documentation.
-* Add protocol mapping between Trace Protocol, Royalty OS, Validation, Cooling, and Dynamic Equilibrium.
-* Add initial JSON Schema files.
-* Add YAML examples.
-* Add validation script.
-* Add GitHub Actions workflow for example validation.
-* Add conformance level definitions.
+* Add protocol mapping between Trace Protocol, Royalty OS, Validation, Cooling, Dynamic Equilibrium, and Multi-Wing Governance.
+* Add formal conformance level definitions.
+* Add multi-wing governance schema and example.
+* Add incident lifecycle schema and example.
+* Add recovery gate schema and example.
+* Add additional validation targets to `scripts/validate_examples.py`.
 * Add architecture diagrams.
+* Prepare `v0.1.0-candidate` release notes.
 
 ---
+
