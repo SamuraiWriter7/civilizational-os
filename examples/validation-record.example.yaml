@@ -1,4 +1,4 @@
-record_id: val-0001https://github.com/SamuraiWriter7/civilizational-os
+record_id: val-0001
 validated_at: "2026-06-10T00:00:00Z"
 validated_by: validation-layer
 
@@ -51,29 +51,29 @@ result:
   validation_result: review_required
   confidence_level: medium
 
-recommended_actions:
-  - require_human_review
-  - recover_trace
-  - restore_attribution_route
-  - cross_verify
-  - reanchor_to_human_intent
+  recommended_actions:
+    - require_human_review
+    - recover_trace
+    - restore_attribution_route
+    - cross_verify
+    - reanchor_to_human_intent
 
-review_required: true
-cooling_required: false
-reanchoring_required: true
-correction_reference: issue-review-trace-and-royalty-001
+  review_required: true
+  cooling_required: false
+  reanchoring_required: true
+  correction_reference: issue-review-trace-and-royalty-001
 
 governance:
   review_status: human_review_required
   reviewer: human-origin-001
   final_status: pending_review
 
-related_records:
-  - tar-0001
-  - eq-fire-001
+  related_records:
+    - tar-0001
+    - eq-fire-001
 
-governance_notes: >
-  This validation record indicates that the target is structurally useful but
-  requires human review, trace recovery, and attribution clarification before it
-  should be treated as a stable governance module.
+  governance_notes: >
+    This validation record indicates that the target is structurally useful but
+    requires human review, trace recovery, and attribution clarification before it
+    should be treated as a stable governance module.
 
