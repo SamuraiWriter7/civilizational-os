@@ -1,6 +1,6 @@
 # Civilizational OS
 
-**A meta-governance architecture for aligning AI engines, human-origin traces, value circulation, dynamic equilibrium, validation, and recovery into a civilization-scale operating layer.**
+**A meta-governance architecture for aligning AI engines, human-origin traces, value circulation, dynamic equilibrium, validation, recovery, and multi-wing governance into a civilization-scale operating layer.**
 
 Civilizational OS is a structural framework for coordinating advanced AI systems without allowing any single model, platform, corporation, optimization loop, or autonomous agent network to become a monolithic center of intelligence.
 
@@ -16,6 +16,7 @@ Instead, it defines a higher-order operating layer that gives AI civilization:
 * structural validation
 * recovery pathways
 * dynamic equilibrium
+* multi-wing governance
 
 In short:
 
@@ -26,7 +27,7 @@ In short:
 
 ## 日本語概要
 
-**Civilizational OS（文明OS）** とは、企業AIエンジン、人間震源、痕跡記録、価値循環、動的平衡、検証、放熱、回復を統合し、AI文明を調律するためのメタ・ガバナンスOSである。
+**Civilizational OS（文明OS）** とは、企業AIエンジン、人間震源、痕跡記録、価値循環、動的平衡、検証、放熱、回復、多翼ガバナンスを統合し、AI文明を調律するためのメタ・ガバナンスOSである。
 
 その目的は、AIを止めることでも、支配することでもない。
 
@@ -39,6 +40,7 @@ AI文明に、
 * 多様性
 * 責任
 * 人間震源
+* 多翼的な相互検証
 
 を与えることである。
 
@@ -58,7 +60,7 @@ Modern AI development is accelerating around increasingly powerful engines:
 These engines are powerful, but engines alone cannot govern civilization-scale intelligence.
 
 Civilizational OS defines a meta-governance layer above individual AI engines.
-Its purpose is to coordinate AI systems as replaceable components inside a broader human-centered, traceable, and dynamically balanced architecture.
+Its purpose is to coordinate AI systems as replaceable components inside a broader human-centered, traceable, plural, and dynamically balanced architecture.
 
 ---
 
@@ -85,6 +87,7 @@ Without a civilization-scale operating layer, these forces can produce structura
 * monolithic intelligence risk
 * opaque AI-to-AI recursion
 * loss of human responsibility
+* automated consensus illusion
 
 Civilizational OS addresses these failure modes by separating AI engines from the higher-order structures required to govern their civilizational impact.
 
@@ -106,6 +109,7 @@ It is achieved through layered coordination:
 * validation and review
 * cooling and recovery
 * dynamic equilibrium
+* inspectable governance records
 
 The goal is not to stop intelligence.
 
@@ -214,8 +218,9 @@ The current v0.1 document set includes:
 * [Dynamic Equilibrium Layer](docs/dynamic-equilibrium.md)
 * [Trace and Royalty Layer](docs/trace-and-royalty-layer.md)
 * [Validation and Cooling Layer](docs/validation-and-cooling.md)
+* [Multi-Wing Governance](docs/multi-wing-governance.md)
 
-These documents define the initial conceptual, architectural, and governance foundation of Civilizational OS.
+These documents define the initial conceptual, architectural, governance, validation, and plurality foundation of Civilizational OS.
 
 ---
 
@@ -329,7 +334,121 @@ This layer prevents governance failures from escalating into systemic collapse.
 
 ---
 
-## 8. Relationship to Existing Modules
+## 8. Multi-Wing Governance
+
+Civilizational OS requires plurality.
+
+Multi-Wing Governance prevents a single AI model, provider, reasoning path, validation route, or platform from becoming the sole intelligence center.
+
+A wing may be:
+
+* a reasoning wing
+* a validation wing
+* a trace wing
+* a royalty wing
+* a cooling wing
+* a policy wing
+* an adversarial wing
+* a human review wing
+
+The purpose is not to create noise.
+
+The purpose is to preserve independent routes for reasoning, verification, disagreement, cooling, and final human responsibility.
+
+Core principle:
+
+> Plurality prevents capture.
+> Cross-verification cuts drift.
+> Human review anchors responsibility.
+
+---
+
+## 9. Schemas
+
+The current schema set includes:
+
+* [Equilibrium State Schema](schemas/equilibrium-state.schema.json)
+* [Trace and Royalty Record Schema](schemas/trace-and-royalty-record.schema.json)
+* [Validation Record Schema](schemas/validation-record.schema.json)
+
+These schemas define the first machine-checkable records for Civilizational OS.
+
+| Schema                                 | Purpose                                                                                                      |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `equilibrium-state.schema.json`        | Represents dynamic equilibrium state, phase dominance, imbalance signals, and counterbalance actions         |
+| `trace-and-royalty-record.schema.json` | Represents origin traceability, transformation, attribution, value circulation, and governance review        |
+| `validation-record.schema.json`        | Represents validation results, drift detection, boundary flags, review requirements, and recommended actions |
+
+---
+
+## 10. Examples
+
+The current YAML examples include:
+
+* [Equilibrium State Example](examples/equilibrium-state.example.yaml)
+* [Trace and Royalty Record Example](examples/trace-and-royalty-record.example.yaml)
+* [Validation Record Example](examples/validation-record.example.yaml)
+
+These examples are validated against the corresponding JSON Schemas.
+
+---
+
+## 11. Validation
+
+Civilizational OS includes an initial validation script:
+
+```text
+scripts/validate_examples.py
+```
+
+It validates:
+
+```text
+examples/equilibrium-state.example.yaml
+  -> schemas/equilibrium-state.schema.json
+
+examples/trace-and-royalty-record.example.yaml
+  -> schemas/trace-and-royalty-record.schema.json
+
+examples/validation-record.example.yaml
+  -> schemas/validation-record.schema.json
+```
+
+Run locally:
+
+```bash
+python scripts/validate_examples.py
+```
+
+Required Python packages:
+
+```bash
+pip install jsonschema pyyaml
+```
+
+---
+
+## 12. GitHub Actions
+
+This repository includes a GitHub Actions workflow:
+
+```text
+.github/workflows/validate-examples.yml
+```
+
+The workflow runs on:
+
+* push to `main`
+* pull requests to `main`
+* manual workflow dispatch
+
+It validates all YAML examples against their corresponding JSON Schemas.
+
+This means the repository now includes an initial self-checking validation layer.
+
+---
+
+## 13. Relationship to Existing Modules
 
 Civilizational OS is designed as an upper-layer architecture that can integrate multiple lower-layer protocols and systems.
 
@@ -351,7 +470,7 @@ They can be interpreted as functional components inside a broader civilization-s
 
 ---
 
-## 9. What Civilizational OS Is Not
+## 14. What Civilizational OS Is Not
 
 Civilizational OS is not:
 
@@ -368,7 +487,7 @@ It is a structural framework for coordinating AI civilization while preserving h
 
 ---
 
-## 10. Boundary Principle
+## 15. Boundary Principle
 
 Civilizational OS does not control AI by domination.
 
@@ -388,38 +507,41 @@ The goal is to give AI civilization a structure that breathes.
 
 ---
 
-## 11. Repository Structure
+## 16. Repository Structure
 
-Current and planned structure:
+Current structure:
 
 ```text
 civilizational-os/
 ├─ README.md
+├─ CHANGELOG.md
 ├─ docs/
 │  ├─ civilizational-os-requirements-v0.1.md
 │  ├─ architecture-overview.md
 │  ├─ dynamic-equilibrium.md
 │  ├─ trace-and-royalty-layer.md
-│  └─ validation-and-cooling.md
+│  ├─ validation-and-cooling.md
+│  └─ multi-wing-governance.md
 ├─ schemas/
-│  ├─ trace.schema.json
-│  ├─ royalty.schema.json
-│  ├─ equilibrium.schema.json
-│  └─ governance.schema.json
-└─ examples/
-   ├─ trace.example.yaml
-   ├─ royalty.example.yaml
-   ├─ equilibrium.example.yaml
-   └─ governance.example.yaml
+│  ├─ equilibrium-state.schema.json
+│  ├─ trace-and-royalty-record.schema.json
+│  └─ validation-record.schema.json
+├─ examples/
+│  ├─ equilibrium-state.example.yaml
+│  ├─ trace-and-royalty-record.example.yaml
+│  └─ validation-record.example.yaml
+├─ scripts/
+│  └─ validate_examples.py
+└─ .github/
+   └─ workflows/
+      └─ validate-examples.yml
 ```
-
-The `schemas/` and `examples/` directories are planned for later versions after the v0.1 architecture documents are stabilized.
 
 ---
 
-## 12. Development Roadmap
+## 17. Development Roadmap
 
-### v0.1 — Requirements and Architecture
+### v0.1 — Requirements, Architecture, and Initial Validation
 
 * Define the purpose of Civilizational OS
 * Establish core requirements
@@ -429,6 +551,11 @@ The `schemas/` and `examples/` directories are planned for later versions after 
 * Document dynamic equilibrium
 * Document trace and royalty integration
 * Document validation, cooling, and recovery
+* Document multi-wing governance
+* Add initial JSON Schemas
+* Add YAML examples
+* Add local validation script
+* Add GitHub Actions workflow
 
 ### v0.2 — Protocol Mapping
 
@@ -436,18 +563,20 @@ The `schemas/` and `examples/` directories are planned for later versions after 
 * Map Royalty OS into the architecture
 * Define communication routes between layers
 * Add initial governance records
-* Add multi-wing governance model
+* Add multi-wing governance records
 * Add trace and royalty interaction model
+* Add protocol mapping documentation
 
-### v0.3 — Schema Layer
+### v0.3 — Expanded Schema Layer
 
-* Add JSON Schemas
-* Add YAML examples
-* Add validation scripts
-* Add CI-based example validation
-* Define minimal conformance records
+* Add additional JSON Schemas
+* Add additional YAML examples
+* Add conformance records
+* Add incident lifecycle records
+* Add recovery gate records
+* Add multi-wing governance records
 
-### v0.4 — Multi-Wing Governance
+### v0.4 — Multi-Wing Governance Automation
 
 * Define multi-agent routing
 * Add cross-verification models
@@ -455,7 +584,7 @@ The `schemas/` and `examples/` directories are planned for later versions after 
 * Add review boundary structures
 * Add multi-engine orchestration records
 
-### v0.5 — Cooling and Recovery
+### v0.5 — Cooling and Recovery Expansion
 
 * Define incident lifecycle
 * Add recovery gates
@@ -465,30 +594,30 @@ The `schemas/` and `examples/` directories are planned for later versions after 
 
 ---
 
-## 13. Status
+## 18. Status
 
-This repository is currently in the **v0.1 requirements and architecture definition phase**.
+This repository is currently in the **v0.1.0-candidate requirements, architecture, schema, and validation phase**.
 
-The current goal is to establish the conceptual, architectural, and structural foundation before implementing schemas, validators, or automation workflows.
+The current foundation includes:
 
-Current document status:
-
-| Document                                    | Status  |
-| ------------------------------------------- | ------- |
-| README.md                                   | Drafted |
-| docs/civilizational-os-requirements-v0.1.md | Drafted |
-| docs/architecture-overview.md               | Drafted |
-| docs/dynamic-equilibrium.md                 | Drafted |
-| docs/trace-and-royalty-layer.md             | Drafted |
-| docs/validation-and-cooling.md              | Drafted |
-| schemas/                                    | Planned |
-| examples/                                   | Planned |
-| validation scripts                          | Planned |
-| CI workflows                                | Planned |
+| Area                                 | Status            |
+| ------------------------------------ | ----------------- |
+| README.md                            | Drafted           |
+| CHANGELOG.md                         | Drafted           |
+| Requirements document                | Drafted           |
+| Architecture overview                | Drafted           |
+| Dynamic equilibrium documentation    | Drafted           |
+| Trace and royalty documentation      | Drafted           |
+| Validation and cooling documentation | Drafted           |
+| Multi-wing governance documentation  | Drafted           |
+| JSON Schemas                         | Added             |
+| YAML examples                        | Added             |
+| Validation script                    | Added             |
+| GitHub Actions workflow              | Added and passing |
 
 ---
 
-## 14. License
+## 19. License
 
 This project is intended to be released under an open license.
 
@@ -508,7 +637,7 @@ Final license selection should be defined before the first tagged release.
 
 ---
 
-## 15. Core Statement
+## 20. Core Statement
 
 > AI engines are accelerators.
 > Human beings are epicenters.
@@ -517,11 +646,12 @@ Final license selection should be defined before the first tagged release.
 > Dynamic equilibrium prevents collapse.
 > Validation cuts drift.
 > Cooling restores breath.
+> Multi-wing governance preserves plurality.
 > Civilizational OS integrates them into a responsible operating layer.
 
 ---
 
-## 16. Japanese Core Statement
+## 21. Japanese Core Statement
 
 AIはエンジンである。
 人間は震源である。
@@ -530,16 +660,15 @@ Royalty は価値を還流させる。
 動的平衡は暴走を防ぐ。
 検証はズレを切断する。
 冷却は文明に呼吸を戻す。
+多翼ガバナンスは単一知性への崩落を防ぐ。
 
 Civilizational OS は、それらを統合し、AI文明を調律するための責任ある上位OSである。
 
 ---
 
-## 17. Version
+## 22. Version
 
 ```text
 Civilizational OS v0.1.0-candidate
-Requirements and Architecture Definition Phase
+Requirements, Architecture, Schema, and Validation Phase
 ```
-
-
