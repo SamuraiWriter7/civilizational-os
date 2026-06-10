@@ -1,0 +1,357 @@
+{
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+"$id": "https://github.com/SamuraiWriter7/civilizational-os/schemas/validation-record.schema.json",
+"title": "Validation Record",
+"description": "A schema for representing validation results, semantic drift detection, hallucination risk, boundary flags, review requirements, and recommended actions in Civilizational OS.",
+"type": "object",
+"required": [
+"record_id",
+"validated_at",
+"target",
+"validation",
+"result",
+"governance"
+],
+"properties": {
+"record_id": {
+"type": "string",
+"description": "Unique identifier for the validation record.",
+"pattern": "^val-[A-Za-z0-9._-]+$"
+},
+"validated_at": {
+"type": "string",
+"description": "Timestamp when the validation was performed.",
+"format": "date-time"
+},
+"validated_by": {
+"type": "string",
+"description": "Identifier of the human, AI engine, agent, validation wing, or governance module that performed the validation."
+},
+"target": {
+"type": "object",
+"description": "The target artifact, record, output, or workflow being validated.",
+"required": [
+"target_id",
+"target_type",
+"target_reference"
+],
+"properties": {
+"target_id": {
+"type": "string",
+"description": "Identifier of the validation target."
+},
+"target_type": {
+"type": "string",
+"description": "Type of object being validated.",
+"enum": [
+"ai_generated_text",
+"ai_generated_code",
+"ai_generated_governance_spec",
+"architecture_document",
+"schema",
+"example",
+"trace_record",
+"royalty_record",
+"equilibrium_state",
+"communication_event",
+"policy_recommendation",
+"governance_action",
+"agent_output",
+"workflow",
+"other"
+]
+},
+"target_reference": {
+"type": "string",
+"description": "Reference to the target artifact, file, record, workflow, or external object."
+},
+"origin_reference": {
+"type": "string",
+"description": "Optional reference to the human-origin trace, source document, or intent record."
+}
+},
+"additionalProperties": false
+},
+"validation": {
+"type": "object",
+"description": "Validation checks performed against the target.",
+"required": [
+"validation_types",
+"detected_issues",
+"drift_level",
+"hallucination_risk",
+"boundary_flags",
+"trace_status",
+"attribution_status"
+],
+"properties": {
+"validation_types": {
+"type": "array",
+"description": "Types of validation performed.",
+"minItems": 1,
+"items": {
+"type": "string",
+"enum": [
+"semantic_drift_detection",
+"hallucination_filtering",
+"boundary_checking",
+"trace_consistency_check",
+"attribution_verification",
+"royalty_route_check",
+"schema_validation",
+"constitutional_alignment",
+"multi_agent_cross_verification",
+"human_review_check",
+"governance_action_validation",
+"other"
+]
+},
+"uniqueItems": true
+},
+"detected_issues": {
+"type": "array",
+"description": "Issues detected during validation.",
+"items": {
+"type": "string",
+"enum": [
+"none",
+"semantic_drift_risk",
+"hallucination_risk",
+"unsupported_claim",
+"invalid_schema",
+"missing_origin_trace",
+"trace_incomplete",
+"unclear_attribution",
+"royalty_route_missing",
+"boundary_violation",
+"governance_boundary_risk",
+"human_review_missing",
+"ai_to_ai_recursion",
+"value_extraction_risk",
+"simulated_compliance",
+"policy_drift",
+"over_automation",
+"unsafe_circulation",
+"inconsistent_record",
+"other"
+]
+},
+"uniqueItems": true
+},
+"drift_level": {
+"type": "string",
+"description": "Detected level of semantic drift.",
+"enum": [
+"none",
+"low",
+"medium",
+"high",
+"critical",
+"unknown"
+]
+},
+"hallucination_risk": {
+"type": "string",
+"description": "Detected hallucination or unsupported-claim risk.",
+"enum": [
+"none",
+"low",
+"medium",
+"high",
+"critical",
+"unknown"
+]
+},
+"boundary_flags": {
+"type": "array",
+"description": "Boundary flags detected during validation.",
+"items": {
+"type": "string",
+"enum": [
+"none",
+"human_review_boundary",
+"governance_boundary",
+"attribution_boundary",
+"royalty_boundary",
+"safety_boundary",
+"authority_boundary",
+"execution_boundary",
+"trace_boundary",
+"communication_boundary"
+]
+},
+"uniqueItems": true
+},
+"trace_status": {
+"type": "string",
+"description": "Status of origin traceability.",
+"enum": [
+"complete",
+"partial",
+"missing",
+"conflicting",
+"not_applicable",
+"unknown"
+]
+},
+"attribution_status": {
+"type": "string",
+"description": "Status of attribution and contributor route clarity.",
+"enum": [
+"complete",
+"partial",
+"missing",
+"conflicting",
+"not_applicable",
+"unknown"
+]
+},
+"evidence_summary": {
+"type": "string",
+"description": "Optional human-readable summary of evidence used during validation."
+},
+"disagreement_summary": {
+"type": "string",
+"description": "Optional summary of disagreement between validation routes, agents, or reviewers."
+}
+},
+"additionalProperties": false
+},
+"result": {
+"type": "object",
+"description": "Validation result and recommended next action.",
+"required": [
+"validation_result",
+"confidence_level",
+"recommended_actions",
+"review_required",
+"cooling_required",
+"reanchoring_required"
+],
+"properties": {
+"validation_result": {
+"type": "string",
+"description": "Overall result of the validation.",
+"enum": [
+"passed",
+"warning",
+"failed",
+"review_required",
+"revision_required",
+"cooling_required",
+"reanchoring_required",
+"not_applicable"
+]
+},
+"confidence_level": {
+"type": "string",
+"description": "Confidence level of the validation result.",
+"enum": [
+"low",
+"medium",
+"high",
+"unknown"
+]
+},
+"recommended_actions": {
+"type": "array",
+"description": "Recommended follow-up actions.",
+"minItems": 1,
+"items": {
+"type": "string",
+"enum": [
+"approve",
+"reject",
+"revise",
+"require_human_review",
+"recover_trace",
+"restore_attribution_route",
+"apply_cooling",
+"pause_circulation",
+"rollback_to_safe_state",
+"cross_verify",
+"escalate_to_policy_review",
+"reanchor_to_human_intent",
+"run_schema_validation",
+"update_boundary_definition",
+"no_action"
+]
+},
+"uniqueItems": true
+},
+"review_required": {
+"type": "boolean",
+"description": "Whether human review is required."
+},
+"cooling_required": {
+"type": "boolean",
+"description": "Whether cooling or pause action is required."
+},
+"reanchoring_required": {
+"type": "boolean",
+"description": "Whether human re-anchoring is required."
+},
+"correction_reference": {
+"type": "string",
+"description": "Optional reference to a correction record, revised artifact, or follow-up issue."
+}
+},
+"additionalProperties": false
+},
+"governance": {
+"type": "object",
+"description": "Governance status, review state, and related records.",
+"required": [
+"review_status",
+"final_status"
+],
+"properties": {
+"review_status": {
+"type": "string",
+"description": "Human or governance review status.",
+"enum": [
+"not_required",
+"human_review_required",
+"pending",
+"approved",
+"rejected",
+"revision_required",
+"escalated"
+]
+},
+"reviewer": {
+"type": "string",
+"description": "Optional identifier of the human reviewer or review body."
+},
+"final_status": {
+"type": "string",
+"description": "Final governance status of the validated target.",
+"enum": [
+"accepted",
+"accepted_with_warning",
+"blocked",
+"rejected",
+"revision_required",
+"pending_review",
+"pending_recovery",
+"not_finalized"
+]
+},
+"related_records": {
+"type": "array",
+"description": "Optional references to related trace, royalty, equilibrium, cooling, incident, or human review records.",
+"items": {
+"type": "string"
+},
+"uniqueItems": true
+},
+"governance_notes": {
+"type": "string",
+"description": "Optional governance notes."
+}
+},
+"additionalProperties": false
+}
+},
+"additionalProperties": false
+}
