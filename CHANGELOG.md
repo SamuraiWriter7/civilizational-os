@@ -10,7 +10,7 @@ This project follows a candidate-based development process during the early arch
 
 ### Added
 
-Initial requirements, architecture, schema, examples, and validation package for **Civilizational OS**.
+Initial requirements, architecture, schema, examples, validation scripts, repository structure validation, and GitHub Actions workflow for **Civilizational OS**.
 
 This release establishes Civilizational OS as a meta-governance architecture for coordinating AI engines, human-origin traces, value circulation, dynamic equilibrium, validation, cooling, recovery, and multi-wing governance into a civilization-scale operating layer.
 
@@ -24,16 +24,7 @@ Added the initial documentation set:
 
   * Defines the project purpose, core principles, architecture layers, key documents, schema set, examples, validation workflow, repository structure, roadmap, and boundary principles.
   * Positions Civilizational OS as a civilizational tuning layer rather than an AI control system.
-  * Introduces the core statement:
-
-    * AI engines are accelerators.
-    * Human beings are epicenters.
-    * Trace preserves origin.
-    * Royalty restores circulation.
-    * Dynamic equilibrium prevents collapse.
-    * Validation cuts drift.
-    * Cooling restores breath.
-    * Multi-wing governance preserves plurality.
+  * Includes validation and repository structure checking as part of the initial self-checking layer.
 
 * `docs/civilizational-os-requirements-v0.1.md`
 
@@ -75,7 +66,6 @@ Added the initial documentation set:
     * Trace preserves origin.
     * Royalty restores circulation.
   * Defines origin preservation, transformation tracking, attribution routing, value circulation, AI-to-AI communication friction, and human epicenter protection.
-  * Provides a conceptual data model and YAML example direction for future schema design.
 
 * `docs/validation-and-cooling.md`
 
@@ -179,7 +169,7 @@ Added initial YAML examples:
 
 ### Validation
 
-Added local validation script:
+Added local example validation script:
 
 * `scripts/validate_examples.py`
 
@@ -205,9 +195,38 @@ python scripts/validate_examples.py
 
 ---
 
+### Repository Structure Validation
+
+Added repository structure validation script:
+
+* `scripts/validate_repository_structure.py`
+
+  * Checks whether required repository files and directories exist.
+  * Verifies:
+
+    * `README.md`
+    * `CHANGELOG.md`
+    * required `docs/` files
+    * required `schemas/` files
+    * required `examples/` files
+    * validation scripts
+    * `.github/workflows/validate-examples.yml`
+
+Run locally:
+
+```bash
+python scripts/validate_repository_structure.py
+```
+
+This adds a repository-level structural integrity check.
+
+It ensures that the Civilizational OS repository does not lose required architectural documents, schema files, examples, scripts, or workflow definitions.
+
+---
+
 ### GitHub Actions
 
-Added GitHub Actions workflow:
+Added and updated GitHub Actions workflow:
 
 * `.github/workflows/validate-examples.yml`
 
@@ -215,9 +234,15 @@ Added GitHub Actions workflow:
   * Runs on pull requests to `main`.
   * Supports manual workflow dispatch.
   * Installs Python dependencies.
-  * Runs `python scripts/validate_examples.py`.
+  * Runs repository structure validation.
+  * Runs YAML example validation against JSON Schemas.
 
-The workflow has passed, confirming that the initial YAML examples conform to their corresponding JSON Schemas.
+The workflow now performs two layers of validation:
+
+1. Repository structure validation
+2. Example schema validation
+
+This confirms both the repository skeleton and the schema/example consistency.
 
 ---
 
@@ -234,6 +259,7 @@ Established the following design principles:
 * The system must breathe.
 * Disagreement must remain visible.
 * Validation must not become automated rubber-stamping.
+* Repository structure should remain self-checking.
 
 ---
 
@@ -278,7 +304,8 @@ civilizational-os/
 │  ├─ trace-and-royalty-record.example.yaml
 │  └─ validation-record.example.yaml
 ├─ scripts/
-│  └─ validate_examples.py
+│  ├─ validate_examples.py
+│  └─ validate_repository_structure.py
 └─ .github/
    └─ workflows/
       └─ validate-examples.yml
@@ -327,8 +354,8 @@ Recommended next additions:
 * Add incident lifecycle schema and example.
 * Add recovery gate schema and example.
 * Add additional validation targets to `scripts/validate_examples.py`.
+* Extend repository structure validation as new files are added.
 * Add architecture diagrams.
 * Prepare `v0.1.0-candidate` release notes.
 
 ---
-
