@@ -1,0 +1,78 @@
+record_id: val-0001
+validated_at: "2026-06-10T00:00:00Z"
+validated_by: validation-layer
+
+target:
+target_id: governance-spec-001
+target_type: ai_generated_governance_spec
+target_reference: docs/trace-and-royalty-layer.md
+origin_reference: human-origin-001
+
+validation:
+validation_types:
+- semantic_drift_detection
+- boundary_checking
+- trace_consistency_check
+- attribution_verification
+- royalty_route_check
+- human_review_check
+
+detected_issues:
+- semantic_drift_risk
+- trace_incomplete
+- unclear_attribution
+- human_review_missing
+- value_extraction_risk
+
+drift_level: medium
+hallucination_risk: low
+
+boundary_flags:
+- human_review_boundary
+- governance_boundary
+- attribution_boundary
+- royalty_boundary
+- trace_boundary
+
+trace_status: partial
+attribution_status: partial
+
+evidence_summary: >
+The target document preserves the core Civilizational OS framing, but the
+attribution route and review status are not yet fully finalized. The document
+is governance-relevant and should not be treated as finalized without human
+review.
+
+disagreement_summary: >
+The validation route does not reject the target, but it flags that additional
+human review and attribution confirmation are required before broad reuse.
+
+result:
+validation_result: review_required
+confidence_level: medium
+
+recommended_actions:
+- require_human_review
+- recover_trace
+- restore_attribution_route
+- cross_verify
+- reanchor_to_human_intent
+
+review_required: true
+cooling_required: false
+reanchoring_required: true
+correction_reference: issue-review-trace-and-royalty-001
+
+governance:
+review_status: human_review_required
+reviewer: human-origin-001
+final_status: pending_review
+
+related_records:
+- tar-0001
+- eq-fire-001
+
+governance_notes: >
+This validation record indicates that the target is structurally useful but
+requires human review, trace recovery, and attribution clarification before it
+should be treated as a stable governance module.
