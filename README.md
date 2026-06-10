@@ -2,7 +2,7 @@
 
 **A meta-governance architecture for aligning AI engines, human-origin traces, value circulation, dynamic equilibrium, validation, and recovery into a civilization-scale operating layer.**
 
-Civilizational OS is a structural framework for coordinating advanced AI systems without allowing any single model, platform, corporation, or optimization loop to become a monolithic center of intelligence.
+Civilizational OS is a structural framework for coordinating advanced AI systems without allowing any single model, platform, corporation, optimization loop, or autonomous agent network to become a monolithic center of intelligence.
 
 It does not attempt to dominate AI systems.
 
@@ -194,11 +194,34 @@ Civilizational OS
 └─ Cooling and Recovery Layer
 ```
 
+| Layer                      | Primary Function                                                           |
+| -------------------------- | -------------------------------------------------------------------------- |
+| Meta-Governance Layer      | Coordinates AI engines as replaceable components                           |
+| Human Epicenter Layer      | Preserves human-origin intent, authorship, and responsibility              |
+| Trace and Royalty Layer    | Records origin, transformation, attribution, and value circulation         |
+| Dynamic Equilibrium Layer  | Balances acceleration, cooling, structuring, cutting, and regeneration     |
+| Validation Layer           | Detects drift, hallucination, boundary violations, and governance failures |
+| Cooling and Recovery Layer | Restores safe states after instability, escalation, or overheating         |
+
 ---
 
-## 6. Architecture Layers
+## 6. Key Documents
 
-### 6.1 Meta-Governance Layer
+The current v0.1 document set includes:
+
+* [Civilizational OS Requirements v0.1](docs/civilizational-os-requirements-v0.1.md)
+* [Architecture Overview](docs/architecture-overview.md)
+* [Dynamic Equilibrium Layer](docs/dynamic-equilibrium.md)
+* [Trace and Royalty Layer](docs/trace-and-royalty-layer.md)
+* [Validation and Cooling Layer](docs/validation-and-cooling.md)
+
+These documents define the initial conceptual, architectural, and governance foundation of Civilizational OS.
+
+---
+
+## 7. Architecture Layers
+
+### 7.1 Meta-Governance Layer
 
 The Meta-Governance Layer treats AI engines as interchangeable components.
 
@@ -216,7 +239,7 @@ This layer prevents any single AI engine from becoming the center of civilizatio
 
 ---
 
-### 6.2 Human Epicenter Layer
+### 7.2 Human Epicenter Layer
 
 The Human Epicenter Layer preserves the origin of reasoning, creativity, and value.
 
@@ -232,7 +255,7 @@ This layer prevents human displacement by recursive AI self-reference.
 
 ---
 
-### 6.3 Trace and Royalty Layer
+### 7.3 Trace and Royalty Layer
 
 The Trace and Royalty Layer connects two core functions:
 
@@ -252,7 +275,7 @@ Together, they prevent:
 
 ---
 
-### 6.4 Dynamic Equilibrium Layer
+### 7.4 Dynamic Equilibrium Layer
 
 The Dynamic Equilibrium Layer regulates the balance of the entire system.
 
@@ -270,7 +293,7 @@ This layer prevents the system from becoming fire-dominant: fast, powerful, and 
 
 ---
 
-### 6.5 Validation Layer
+### 7.5 Validation Layer
 
 The Validation Layer checks whether AI activity remains structurally aligned.
 
@@ -288,7 +311,7 @@ This layer ensures that AI-generated structures do not silently diverge from the
 
 ---
 
-### 6.6 Cooling and Recovery Layer
+### 7.6 Cooling and Recovery Layer
 
 The Cooling and Recovery Layer provides safe transitions when the system becomes unstable.
 
@@ -306,7 +329,7 @@ This layer prevents governance failures from escalating into systemic collapse.
 
 ---
 
-## 7. Relationship to Existing Modules
+## 8. Relationship to Existing Modules
 
 Civilizational OS is designed as an upper-layer architecture that can integrate multiple lower-layer protocols and systems.
 
@@ -328,7 +351,7 @@ They can be interpreted as functional components inside a broader civilization-s
 
 ---
 
-## 8. What Civilizational OS Is Not
+## 9. What Civilizational OS Is Not
 
 Civilizational OS is not:
 
@@ -345,7 +368,7 @@ It is a structural framework for coordinating AI civilization while preserving h
 
 ---
 
-## 9. Boundary Principle
+## 10. Boundary Principle
 
 Civilizational OS does not control AI by domination.
 
@@ -365,9 +388,9 @@ The goal is to give AI civilization a structure that breathes.
 
 ---
 
-## 10. Repository Structure
+## 11. Repository Structure
 
-Planned structure:
+Current and planned structure:
 
 ```text
 civilizational-os/
@@ -376,9 +399,7 @@ civilizational-os/
 │  ├─ civilizational-os-requirements-v0.1.md
 │  ├─ architecture-overview.md
 │  ├─ dynamic-equilibrium.md
-│  ├─ trace-protocol.md
-│  ├─ royalty-os.md
-│  ├─ multi-wing-architecture.md
+│  ├─ trace-and-royalty-layer.md
 │  └─ validation-and-cooling.md
 ├─ schemas/
 │  ├─ trace.schema.json
@@ -392,9 +413,11 @@ civilizational-os/
    └─ governance.example.yaml
 ```
 
+The `schemas/` and `examples/` directories are planned for later versions after the v0.1 architecture documents are stabilized.
+
 ---
 
-## 11. Development Roadmap
+## 12. Development Roadmap
 
 ### v0.1 — Requirements and Architecture
 
@@ -403,6 +426,9 @@ civilizational-os/
 * Define architecture layers
 * Clarify boundary principles
 * Position lower-layer modules
+* Document dynamic equilibrium
+* Document trace and royalty integration
+* Document validation, cooling, and recovery
 
 ### v0.2 — Protocol Mapping
 
@@ -410,6 +436,8 @@ civilizational-os/
 * Map Royalty OS into the architecture
 * Define communication routes between layers
 * Add initial governance records
+* Add multi-wing governance model
+* Add trace and royalty interaction model
 
 ### v0.3 — Schema Layer
 
@@ -417,6 +445,7 @@ civilizational-os/
 * Add YAML examples
 * Add validation scripts
 * Add CI-based example validation
+* Define minimal conformance records
 
 ### v0.4 — Multi-Wing Governance
 
@@ -424,6 +453,7 @@ civilizational-os/
 * Add cross-verification models
 * Add semantic drift checks
 * Add review boundary structures
+* Add multi-engine orchestration records
 
 ### v0.5 — Cooling and Recovery
 
@@ -431,18 +461,34 @@ civilizational-os/
 * Add recovery gates
 * Add cooling transitions
 * Add human re-anchoring models
+* Add recovery and rollback examples
 
 ---
 
-## 12. Status
+## 13. Status
 
-This repository is currently in the **v0.1 requirements definition phase**.
+This repository is currently in the **v0.1 requirements and architecture definition phase**.
 
 The current goal is to establish the conceptual, architectural, and structural foundation before implementing schemas, validators, or automation workflows.
 
+Current document status:
+
+| Document                                    | Status  |
+| ------------------------------------------- | ------- |
+| README.md                                   | Drafted |
+| docs/civilizational-os-requirements-v0.1.md | Drafted |
+| docs/architecture-overview.md               | Drafted |
+| docs/dynamic-equilibrium.md                 | Drafted |
+| docs/trace-and-royalty-layer.md             | Drafted |
+| docs/validation-and-cooling.md              | Drafted |
+| schemas/                                    | Planned |
+| examples/                                   | Planned |
+| validation scripts                          | Planned |
+| CI workflows                                | Planned |
+
 ---
 
-## 13. License
+## 14. License
 
 This project is intended to be released under an open license.
 
@@ -462,7 +508,7 @@ Final license selection should be defined before the first tagged release.
 
 ---
 
-## 14. Core Statement
+## 15. Core Statement
 
 > AI engines are accelerators.
 > Human beings are epicenters.
@@ -475,7 +521,7 @@ Final license selection should be defined before the first tagged release.
 
 ---
 
-## 15. Japanese Core Statement
+## 16. Japanese Core Statement
 
 AIはエンジンである。
 人間は震源である。
@@ -489,10 +535,11 @@ Civilizational OS は、それらを統合し、AI文明を調律するための
 
 ---
 
-## 16. Version
+## 17. Version
 
 ```text
 Civilizational OS v0.1.0-candidate
-Requirements Definition Phase
+Requirements and Architecture Definition Phase
 ```
+
 
