@@ -1,0 +1,64 @@
+record_id: tar-0001
+recorded_at: "2026-06-10T00:00:00Z"
+recorded_by: trace-and-royalty-layer
+
+origin:
+human_epicenter_id: human-origin-001
+origin_type: design_intent
+origin_timestamp: "2026-06-10T00:00:00Z"
+origin_description: "Initial human-origin concept for defining Civilizational OS as a meta-governance architecture."
+origin_reference: "docs/civilizational-os-requirements-v0.1.md"
+
+transformation:
+engine_id: ai-engine-001
+transformation_type: specification_generation
+input_reference: human-origin-001
+output_reference: docs/trace-and-royalty-layer.md
+transformation_summary: "The human-origin concept was transformed into a structured architecture module defining traceability, attribution, royalty routes, and communication friction."
+
+communication:
+sender_type: ai_engine
+receiver_type: governance_module
+communication_purpose: refinement
+communication_scope: governance
+communication_reference: "docs/trace-and-royalty-layer.md"
+
+attribution:
+contributors:
+- contributor_id: human-origin-001
+role: originator
+contribution_summary: "Provided the initial concept, framing, and civilizational architecture direction."
+- contributor_id: ai-engine-001
+role: transformer
+contribution_summary: "Structured the origin concept into a formal documentation module."
+attribution_route:
+- human-origin-001
+- docs/civilizational-os-requirements-v0.1.md
+- docs/architecture-overview.md
+- docs/trace-and-royalty-layer.md
+derivative_links:
+- derivative_id: schemas/trace-and-royalty-record.schema.json
+relation: derived_from
+- derivative_id: examples/trace-and-royalty-record.example.yaml
+relation: derived_from
+
+royalty:
+value_flow_type: attribution_and_review
+return_route: human-origin-001
+circulation_required: true
+review_required: true
+royalty_notes: "Value circulation is represented as attribution, review, and return of recognition to the human epicenter."
+
+governance:
+validation_status: pending
+review_status: human_review_required
+boundary_flags:
+- derivative_output
+- governance_boundary
+- human_review_required
+- royalty_required
+recovery_required: false
+related_records:
+- eq-fire-001
+- validation-record-001
+governance_notes: "This record should be reviewed before being used as a reusable governance example."
