@@ -1,0 +1,47 @@
+record_id: eq-fire-001
+workflow_id: workflow-ai-governance-spec-001
+assessed_at: "2026-06-10T00:00:00Z"
+assessed_by: dynamic-equilibrium-layer
+
+current_phase: fire
+dominant_phase: fire
+imbalance_level: high
+
+detected_signals:
+
+* recursive_generation
+* reduced_human_review
+* semantic_drift_risk
+* ai_to_ai_recursion
+* automation_without_review
+* value_extraction_risk
+
+recommended_counterbalance:
+
+* metal_validation
+* water_cooling
+* trace_recovery
+* human_reanchoring
+* cross_verification
+* pause_execution
+
+review_required: true
+cooling_required: true
+validation_required: true
+reanchoring_required: true
+
+transition_status: pending
+transition_target: human_review
+
+related_records:
+
+* trace-record-001
+* validation-record-001
+* cooling-event-001
+* human-review-record-001
+
+notes: >
+The workflow shows a fire-dominant imbalance caused by recursive AI-to-AI
+generation, reduced human review, and semantic drift risk. The recommended
+counterbalance is to pause execution, apply validation, recover the origin
+trace, cool the workflow, and return the process to human review.
