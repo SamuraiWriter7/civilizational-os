@@ -1,0 +1,140 @@
+{
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+"$id": "https://example.org/civilizational-os/schemas/equilibrium-state.schema.json",
+"title": "Equilibrium State",
+"description": "A schema for representing the dynamic equilibrium state of a Civilizational OS workflow.",
+"type": "object",
+"required": [
+"record_id",
+"current_phase",
+"dominant_phase",
+"imbalance_level",
+"detected_signals",
+"recommended_counterbalance",
+"review_required",
+"cooling_required",
+"validation_required",
+"reanchoring_required",
+"transition_status"
+],
+"properties": {
+"record_id": {
+"type": "string",
+"description": "Unique identifier for the equilibrium state record.",
+"pattern": "^eq-[A-Za-z0-9._-]+$"
+},
+"current_phase": {
+"type": "string",
+"description": "The currently active phase in the dynamic equilibrium model.",
+"enum": [
+"wood",
+"fire",
+"earth",
+"metal",
+"water"
+]
+},
+"dominant_phase": {
+"type": "string",
+"description": "The phase currently exerting the strongest influence on the system.",
+"enum": [
+"wood",
+"fire",
+"earth",
+"metal",
+"water",
+"none"
+]
+},
+"imbalance_level": {
+"type": "string",
+"description": "Severity of detected imbalance.",
+"enum": [
+"none",
+"low",
+"medium",
+"high",
+"critical"
+]
+},
+"detected_signals": {
+"type": "array",
+"description": "Signals indicating phase dominance, drift, overheating, or instability.",
+"items": {
+"type": "string",
+"enum": [
+"recursive_generation",
+"reduced_human_review",
+"semantic_drift_risk",
+"hallucination_risk",
+"trace_missing",
+"attribution_unclear",
+"ai_to_ai_recursion",
+"governance_boundary_risk",
+"emotional_overheating",
+"review_overload",
+"stagnation",
+"excessive_rejection",
+"rigid_governance",
+"unstable_ideation",
+"value_extraction_risk"
+]
+},
+"uniqueItems": true
+},
+"recommended_counterbalance": {
+"type": "array",
+"description": "Recommended balancing actions based on detected imbalance.",
+"items": {
+"type": "string",
+"enum": [
+"wood_regeneration",
+"fire_execution",
+"earth_structuring",
+"metal_validation",
+"water_cooling",
+"trace_recovery",
+"human_reanchoring",
+"royalty_review",
+"cross_verification",
+"pause_execution",
+"rollback_to_safe_state"
+]
+},
+"uniqueItems": true,
+"minItems": 1
+},
+"review_required": {
+"type": "boolean",
+"description": "Whether human review is required."
+},
+"cooling_required": {
+"type": "boolean",
+"description": "Whether cooling action is required."
+},
+"validation_required": {
+"type": "boolean",
+"description": "Whether validation is required before continuation."
+},
+"reanchoring_required": {
+"type": "boolean",
+"description": "Whether the system must return to human-origin intent."
+},
+"transition_status": {
+"type": "string",
+"description": "Current status of the equilibrium transition.",
+"enum": [
+"pending",
+"in_progress",
+"completed",
+"blocked",
+"failed"
+]
+},
+"notes": {
+"type": "string",
+"description": "Optional human-readable notes about the equilibrium state."
+}
+},
+"additionalProperties": false
+}
